@@ -5,25 +5,30 @@ pipeline{
             name: 'TAG_CHOICE',
             choices: ['@smoke', '@regression', '@smoke,@regression'],
             description: 'Select one tag to run'
-
+           
         )
     }
 
     environment {
         JAVA_HOME = '/opt/homebrew/opt/openjdk@17'
         PATH = "${env.JAVA_HOME}/bin:${env.PATH}"
-
-
+        
+        
 
     }
     stages {
-
+         
         stage('Github Handshake'){
-            steps{
-                cleanWs()
-                 checkout scmGit(branches: [[name: '*/master']], extensions: [], userRemoteConfigs: [[credentialsId: 'cd7336a7-41bd-431e-a4ba-fa38c6c68219', url: 'https://github.com/RajeshCM-1504/APIBDDFramework.git']])
-
-            }
+            steps {
+    cleanWs()
+    checkout([$class: 'GitSCM',
+        branches: [[name: '*/main']],
+        userRemoteConfigs: [[
+            url: 'https://github.com/rajeshcholaghatta/Deltatre-Data-Platform-API.git',
+            credentialsId: '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' 
+        ]]
+    ])
+}
             }
         stage('Import Libraries') {
             steps {
@@ -33,22 +38,22 @@ pipeline{
                  sh 'python3 -m behave --version'
                  sh 'python3 -m pip install allure-behave'
                  sh "python3 -m behave -t '${params.TAG_CHOICE}' -f allure_behave.formatter:AllureFormatter -o allure-results"
-
+        
       }}
         stage("Allure Reports") {
-    steps {
+    steps { 
                 allure([
                     includeProperties: false,
                     jdk: '',
                     commandline: 'allure',
                     results: [[path: 'allure-results']]
                         ])
-
-            }
+    
+            } 
         }
         stage('Zip Allure Report') {
             steps {
-
+                
                 sh 'zip -r allure-report.zip allure-report'
                 sh 'ls -lh allure-report.zip'
             }
@@ -67,11 +72,11 @@ pipeline{
                     to: 'cmrajesh1504@gmail.com',
                     attachmentsPattern: '**/allure-report.zip',
                     mimeType: 'text/plain'
-
+            
                 )
             }
         }
-
+       
+        }   
     }
 
-}
