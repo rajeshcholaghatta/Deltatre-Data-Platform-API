@@ -7,6 +7,7 @@ from behave import *
 import requests
 from jsonschema.exceptions import ValidationError
 from jsonschema.validators import validate
+from utils.logger import get_logger
 
 @given(u'the seasons details to be fetched based on ID from deltatre sports platform with parameter {locale} variable')
 def step_impl(context,locale):
