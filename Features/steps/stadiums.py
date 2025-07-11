@@ -7,6 +7,7 @@ from behave import *
 import requests
 from jsonschema.exceptions import ValidationError
 from jsonschema.validators import validate
+from utils.logger import get_logger
 
 @given(u'the stadium details to be fetched from deltatre sports platform with the team ID is {teamId} And the stadium ID is {stadiumId} And the season IDs are {seasonIds} And the locale is {locale}')
 def step_impl(context,teamId,stadiumId,seasonIds,locale):
