@@ -2,12 +2,11 @@ import json
 import os
 import time
 import allure
-#import logger
 from behave import *
 import requests
 from jsonschema.exceptions import ValidationError
 from jsonschema.validators import validate
-#from utils.logger import get_logger
+from utils.logger import get_logger
 
 @given('the competations details to be fetched from deltatre sports platform with parameter {locale} variable')
 def api(context,locale):
