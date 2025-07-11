@@ -1,0 +1,6 @@
+requests
+jsonschema
+behave
+allure-behave
+
+

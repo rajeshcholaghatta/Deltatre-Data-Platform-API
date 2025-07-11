@@ -1,0 +1,5 @@
+behave:
+  tags: "@smoke, @regression"
+  paths: features
+  format: pretty
+  no_capture: true
