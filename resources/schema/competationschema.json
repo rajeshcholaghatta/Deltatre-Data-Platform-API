@@ -1,0 +1,48 @@
+{
+        "$schema": "http://json-schema.org/draft-07/schema#",
+        "title": "Generated schema for Root",
+        "type": "object",
+        "properties": {
+            "competitions": {
+                "type": "array",
+                "items": {
+                    "type": "object",
+                    "properties": {
+                        "competitionId": {
+                            "type": "string"
+                        },
+                        "providerId": {
+                            "type": "string"
+                        },
+                        "name": {
+                            "type": "string"
+                        },
+                        "officialName": {
+                            "type": "string"
+                        },
+                        "shortName": {
+                            "type": "string"
+                        },
+                        "acronymName": {
+                            "type": "string"
+                        }
+                    },
+                    "required": [
+                        "competitionId",
+                        "providerId",
+                        "name",
+                        "officialName",
+                        "shortName",
+                        "acronymName"
+                    ]
+                }
+            },
+            "apiCallRequestTime": {
+                "type": "string"
+            }
+        },
+        "required": [
+            "competitions",
+            "apiCallRequestTime"
+        ]
+    }

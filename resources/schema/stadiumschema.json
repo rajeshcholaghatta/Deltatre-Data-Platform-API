@@ -1,0 +1,107 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Generated schema for Root",
+  "type": "object",
+  "properties": {
+    "competitions": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "seasonId": {
+            "type": "string"
+          },
+          "startDateUtc": {},
+          "endDateUtc": {},
+          "seasonName": {
+            "type": "string"
+          },
+          "competitionId": {
+            "type": "string"
+          },
+          "providerId": {
+            "type": "string"
+          },
+          "name": {
+            "type": "string"
+          },
+          "officialName": {
+            "type": "string"
+          },
+          "shortName": {
+            "type": "string"
+          },
+          "acronymName": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "seasonId",
+          "startDateUtc",
+          "endDateUtc",
+          "seasonName",
+          "competitionId",
+          "providerId",
+          "name",
+          "officialName",
+          "shortName",
+          "acronymName"
+        ]
+      }
+    },
+    "stadiums": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "providerId": {
+            "type": "string"
+          },
+          "name": {
+            "type": "string"
+          },
+          "cityName": {
+            "type": "string"
+          },
+          "country": {
+            "type": "string"
+          },
+          "address": {
+            "type": "string"
+          },
+          "capacity": {
+            "type": "number"
+          },
+          "yearOfConstruction": {
+            "type": "number"
+          },
+          "mapsGeoCodeLatitude": {},
+          "mapsGeoCodeLongitude": {}
+        },
+        "required": [
+          "id",
+          "providerId",
+          "name",
+          "cityName",
+          "country",
+          "address",
+          "capacity",
+          "yearOfConstruction",
+          "mapsGeoCodeLatitude",
+          "mapsGeoCodeLongitude"
+        ]
+      }
+    },
+    "apiCallRequestTime": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "competitions",
+    "stadiums",
+    "apiCallRequestTime"
+  ]
+}
